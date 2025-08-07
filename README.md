@@ -33,23 +33,27 @@ VITE_FROM_EMAIL=noreply@thomsonreuters.com
 ## Features
 
 ### ✅ Site Configuration Management
+
 - **Database-backed configuration** with real-time updates
 - **Stakeholder mapping** with pattern matching
 - **Threshold customization** per domain
 - **Enable/disable sites** functionality
 
 ### ✅ Email Testing
+
 - **Interactive email modal** for testing configuration
 - **Real email sending** with status tracking
 - **Database logging** of all email attempts
 
 ### ✅ Scheduler Management
+
 - **Start/Stop scheduler** functionality
 - **Database persistence** of scheduler state
 - **Real-time status updates**
 - **Job tracking** and history
 
 ### ✅ File Processing
+
 - **Excel file upload** and validation
 - **Progress tracking** with visual indicators
 - **Database storage** of processing results
@@ -79,4 +83,4 @@ Run this SQL in your Supabase SQL editor:
 
 ## Support
 
-For technical support, contact the development team or refer to the documentation in the `/docs` folder.
+# For technical support, contact the development team or refer to the documentation in the `/docs` folder.
