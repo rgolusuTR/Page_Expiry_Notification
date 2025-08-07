@@ -1,0 +1,313 @@
+# Thomson Reuters Multi-Site Stakeholder Mapping Configuration
+# Customized for five TR websites with domain-specific settings
+
+# Site-specific configurations
+sites:
+  # Main Thomson Reuters Corporate Site
+  "www.thomsonreuters.com":
+    domain: "www.thomsonreuters.com"
+    name: "Thomson Reuters Corporate"
+    default_stakeholder: "corporate-web@thomsonreuters.com"
+    expiry_threshold_days: 1095  # 3 years for corporate content
+    low_engagement_threshold: 10  # Higher threshold for corporate pages
+    new_page_threshold_days: 45   # 45 days for corporate content evaluation
+    
+  # Thomson Reuters Canada
+  "www.thomsonreuters.ca":
+    domain: "www.thomsonreuters.ca"
+    name: "Thomson Reuters Canada"
+    default_stakeholder: "canada-web@thomsonreuters.com"
+    expiry_threshold_days: 730   # 2 years for regional content
+    low_engagement_threshold: 5   # Standard threshold
+    new_page_threshold_days: 30   # 30 days for regional content
+    
+  # Legal Solutions
+  "legal.thomsonreuters.com":
+    domain: "legal.thomsonreuters.com"
+    name: "Thomson Reuters Legal"
+    default_stakeholder: "legal-web@thomsonreuters.com"
+    expiry_threshold_days: 365   # 1 year for legal content (needs frequent updates)
+    low_engagement_threshold: 15  # Higher threshold for specialized legal content
+    new_page_threshold_days: 60   # 60 days for legal content evaluation
+    
+  # Tax Solutions
+  "tax.thomsonreuters.com":
+    domain: "tax.thomsonreuters.com"
+    name: "Thomson Reuters Tax"
+    default_stakeholder: "tax-web@thomsonreuters.com"
+    expiry_threshold_days: 365   # 1 year for tax content (regulatory changes)
+    low_engagement_threshold: 8   # Moderate threshold for tax content
+    new_page_threshold_days: 30   # 30 days for tax content
+    
+  # Legal Solutions UK
+  "legalsolutions.thomsonreuters.co.uk":
+    domain: "legalsolutions.thomsonreuters.co.uk"
+    name: "Thomson Reuters Legal UK"
+    default_stakeholder: "legal-uk-web@thomsonreuters.com"
+    expiry_threshold_days: 365   # 1 year for UK legal content
+    low_engagement_threshold: 12  # Higher threshold for UK legal market
+    new_page_threshold_days: 45   # 45 days for UK legal content
+
+# Domain-specific stakeholder mappings
+domain_mappings:
+  # Corporate Site (www.thomsonreuters.com)
+  "www.thomsonreuters.com":
+    exact_urls:
+      "/en": "corporate-web@thomsonreuters.com"
+      "/en/about-us": "corporate-communications@thomsonreuters.com"
+      "/en/careers": "talent-acquisition@thomsonreuters.com"
+      "/en/investors": "investor-relations@thomsonreuters.com"
+      "/en/newsroom": "corporate-communications@thomsonreuters.com"
+      "/en/contact-us": "corporate-web@thomsonreuters.com"
+      
+    patterns:
+      "/en/about-us/*": "corporate-communications@thomsonreuters.com"
+      "/en/careers/*": "talent-acquisition@thomsonreuters.com"
+      "/en/investors/*": "investor-relations@thomsonreuters.com"
+      "/en/newsroom/*": "corporate-communications@thomsonreuters.com"
+      "/en/products/*": "product-marketing@thomsonreuters.com"
+      "/en/solutions/*": "solutions-marketing@thomsonreuters.com"
+      "/en/industries/*": "industry-marketing@thomsonreuters.com"
+      "/en/sustainability/*": "sustainability@thomsonreuters.com"
+      "/en/innovation/*": "innovation-team@thomsonreuters.com"
+      
+  # Canada Site (www.thomsonreuters.ca)
+  "www.thomsonreuters.ca":
+    exact_urls:
+      "/en.html": "canada-web@thomsonreuters.com"
+      "/en/about": "canada-marketing@thomsonreuters.com"
+      "/en/contact": "canada-sales@thomsonreuters.com"
+      
+    patterns:
+      "/en/products/*": "canada-product@thomsonreuters.com"
+      "/en/solutions/*": "canada-solutions@thomsonreuters.com"
+      "/en/support/*": "canada-support@thomsonreuters.com"
+      "/en/training/*": "canada-training@thomsonreuters.com"
+      "/en/news/*": "canada-marketing@thomsonreuters.com"
+      "/fr/*": "canada-french@thomsonreuters.com"
+      
+  # Legal Solutions (legal.thomsonreuters.com)
+  "legal.thomsonreuters.com":
+    exact_urls:
+      "/en": "legal-web@thomsonreuters.com"
+      "/en/products": "legal-product@thomsonreuters.com"
+      "/en/support": "legal-support@thomsonreuters.com"
+      
+    patterns:
+      "/en/products/*": "legal-product@thomsonreuters.com"
+      "/en/solutions/*": "legal-solutions@thomsonreuters.com"
+      "/en/industries/*": "legal-industry@thomsonreuters.com"
+      "/en/insights/*": "legal-content@thomsonreuters.com"
+      "/en/training/*": "legal-training@thomsonreuters.com"
+      "/en/support/*": "legal-support@thomsonreuters.com"
+      "/en/resources/*": "legal-content@thomsonreuters.com"
+      "/en/case-studies/*": "legal-marketing@thomsonreuters.com"
+      "/en/webinars/*": "legal-events@thomsonreuters.com"
+      
+  # Tax Solutions (tax.thomsonreuters.com)
+  "tax.thomsonreuters.com":
+    exact_urls:
+      "/en": "tax-web@thomsonreuters.com"
+      "/en/products": "tax-product@thomsonreuters.com"
+      "/en/support": "tax-support@thomsonreuters.com"
+      
+    patterns:
+      "/en/products/*": "tax-product@thomsonreuters.com"
+      "/en/solutions/*": "tax-solutions@thomsonreuters.com"
+      "/en/compliance/*": "tax-compliance@thomsonreuters.com"
+      "/en/insights/*": "tax-content@thomsonreuters.com"
+      "/en/training/*": "tax-training@thomsonreuters.com"
+      "/en/support/*": "tax-support@thomsonreuters.com"
+      "/en/resources/*": "tax-content@thomsonreuters.com"
+      "/en/updates/*": "tax-regulatory@thomsonreuters.com"
+      "/en/webinars/*": "tax-events@thomsonreuters.com"
+      
+  # Legal Solutions UK (legalsolutions.thomsonreuters.co.uk)
+  "legalsolutions.thomsonreuters.co.uk":
+    exact_urls:
+      "/en.html": "legal-uk-web@thomsonreuters.com"
+      "/en/products": "legal-uk-product@thomsonreuters.com"
+      "/en/support": "legal-uk-support@thomsonreuters.com"
+      
+    patterns:
+      "/en/products/*": "legal-uk-product@thomsonreuters.com"
+      "/en/solutions/*": "legal-uk-solutions@thomsonreuters.com"
+      "/en/insights/*": "legal-uk-content@thomsonreuters.com"
+      "/en/training/*": "legal-uk-training@thomsonreuters.com"
+      "/en/support/*": "legal-uk-support@thomsonreuters.com"
+      "/en/resources/*": "legal-uk-content@thomsonreuters.com"
+      "/en/case-studies/*": "legal-uk-marketing@thomsonreuters.com"
+      "/en/events/*": "legal-uk-events@thomsonreuters.com"
+
+# Team-specific notification preferences
+notification_preferences:
+  # Corporate teams
+  "corporate-web@thomsonreuters.com":
+    frequency: "weekly"
+    batch_alerts: true
+    escalation_days: 14
+    
+  "corporate-communications@thomsonreuters.com":
+    frequency: "immediate"
+    batch_alerts: false
+    escalation_days: 7
+    
+  "investor-relations@thomsonreuters.com":
+    frequency: "immediate"
+    batch_alerts: false
+    escalation_days: 3
+    
+  # Canada teams
+  "canada-web@thomsonreuters.com":
+    frequency: "weekly"
+    batch_alerts: true
+    escalation_days: 10
+    
+  "canada-product@thomsonreuters.com":
+    frequency: "bi-weekly"
+    batch_alerts: true
+    escalation_days: 14
+    
+  # Legal teams
+  "legal-web@thomsonreuters.com":
+    frequency: "weekly"
+    batch_alerts: true
+    escalation_days: 7
+    
+  "legal-product@thomsonreuters.com":
+    frequency: "immediate"
+    batch_alerts: false
+    escalation_days: 5
+    
+  "legal-content@thomsonreuters.com":
+    frequency: "weekly"
+    batch_alerts: true
+    escalation_days: 10
+    
+  # Tax teams
+  "tax-web@thomsonreuters.com":
+    frequency: "weekly"
+    batch_alerts: true
+    escalation_days: 7
+    
+  "tax-regulatory@thomsonreuters.com":
+    frequency: "immediate"
+    batch_alerts: false
+    escalation_days: 3
+    
+  "tax-compliance@thomsonreuters.com":
+    frequency: "immediate"
+    batch_alerts: false
+    escalation_days: 5
+    
+  # UK Legal teams
+  "legal-uk-web@thomsonreuters.com":
+    frequency: "weekly"
+    batch_alerts: true
+    escalation_days: 7
+    
+  "legal-uk-product@thomsonreuters.com":
+    frequency: "bi-weekly"
+    batch_alerts: true
+    escalation_days: 10
+
+# Content type specific rules
+content_type_rules:
+  # High priority content that needs immediate attention
+  critical_content:
+    patterns:
+      - "*/products/*"
+      - "*/pricing/*"
+      - "*/compliance/*"
+      - "*/regulatory/*"
+      - "*/investors/*"
+    expiry_override: 180  # 6 months for critical content
+    engagement_override: 20
+    immediate_notification: true
+    
+  # Marketing content with shorter lifecycle
+  marketing_content:
+    patterns:
+      - "*/campaigns/*"
+      - "*/promotions/*"
+      - "*/events/*"
+      - "*/webinars/*"
+    expiry_override: 90   # 3 months for marketing content
+    engagement_override: 25
+    
+  # Evergreen content with longer lifecycle
+  evergreen_content:
+    patterns:
+      - "*/about-us/*"
+      - "*/company/*"
+      - "*/history/*"
+      - "*/mission/*"
+    expiry_override: 1825  # 5 years for evergreen content
+    engagement_override: 5
+
+# Escalation matrix
+escalation_rules:
+  # No response escalation
+  no_response_escalation:
+    "corporate-communications@thomsonreuters.com": "communications-director@thomsonreuters.com"
+    "investor-relations@thomsonreuters.com": "ir-director@thomsonreuters.com"
+    "legal-product@thomsonreuters.com": "legal-product-director@thomsonreuters.com"
+    "tax-regulatory@thomsonreuters.com": "tax-director@thomsonreuters.com"
+    "legal-uk-product@thomsonreuters.com": "legal-uk-director@thomsonreuters.com"
+    
+  # Critical page escalation (immediate CC)
+  critical_escalation:
+    - "web-governance@thomsonreuters.com"
+    - "digital-experience@thomsonreuters.com"
+
+# Regional and language considerations
+regional_settings:
+  canada:
+    timezone: "America/Toronto"
+    business_hours: "9:00-17:00"
+    language_codes: ["en", "fr"]
+    
+  uk:
+    timezone: "Europe/London"
+    business_hours: "9:00-17:00"
+    language_codes: ["en"]
+    
+  us:
+    timezone: "America/New_York"
+    business_hours: "9:00-17:00"
+    language_codes: ["en"]
+
+# Reporting and analytics
+reporting_config:
+  # Site-specific reporting
+  site_reports:
+    enabled: true
+    frequency: "weekly"
+    recipients:
+      - "web-governance@thomsonreuters.com"
+      - "digital-analytics@thomsonreuters.com"
+      
+  # Executive summary
+  executive_summary:
+    enabled: true
+    frequency: "monthly"
+    recipients:
+      - "digital-experience-director@thomsonreuters.com"
+      - "web-governance@thomsonreuters.com"
+      
+  # Performance metrics
+  track_metrics:
+    - response_rate_by_site
+    - average_resolution_time
+    - content_lifecycle_trends
+    - stakeholder_engagement_scores
+
+# Configuration metadata
+metadata:
+  version: "2.0.0"
+  last_updated: "2024-01-15T10:00:00Z"
+  updated_by: "web-governance@thomsonreuters.com"
+  description: "Thomson Reuters multi-site stakeholder mapping with customized thresholds"
+  environment: "production"
+  sites_count: 5
+  total_stakeholders: 25

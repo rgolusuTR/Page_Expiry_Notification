@@ -1,0 +1,251 @@
+# Stakeholder Mapping Configuration
+# This file defines how pages are mapped to responsible stakeholders
+
+# Mapping priority (lower number = higher priority):
+# 1. exact_urls - Direct URL matches
+# 2. patterns - Pattern-based matches (supports wildcards)
+# 3. departments - Department-based fallback
+# 4. default - System default
+
+mappings:
+  # Exact URL matches (highest priority)
+  exact_urls:
+    "/": "webmaster@company.com"
+    "/home": "webmaster@company.com"
+    "/about": "marketing@company.com"
+    "/about/team": "hr@company.com"
+    "/about/history": "marketing@company.com"
+    "/contact": "customer-service@company.com"
+    "/contact/support": "support@company.com"
+    "/privacy": "legal@company.com"
+    "/terms": "legal@company.com"
+    "/sitemap": "webmaster@company.com"
+    "/robots.txt": "webmaster@company.com"
+    
+  # Pattern-based matches (wildcards supported)
+  patterns:
+    # Blog and content
+    "/blog/*": "content@company.com"
+    "/news/*": "marketing@company.com"
+    "/press/*": "marketing@company.com"
+    "/articles/*": "content@company.com"
+    
+    # Products and services
+    "/products/*": "product@company.com"
+    "/services/*": "sales@company.com"
+    "/solutions/*": "product@company.com"
+    "/pricing/*": "sales@company.com"
+    
+    # Support and documentation
+    "/support/*": "support@company.com"
+    "/docs/*": "support@company.com"
+    "/help/*": "support@company.com"
+    "/faq/*": "support@company.com"
+    "/knowledge-base/*": "support@company.com"
+    "/tutorials/*": "support@company.com"
+    
+    # Technical and development
+    "/api/*": "dev@company.com"
+    "/developer/*": "dev@company.com"
+    "/technical/*": "dev@company.com"
+    "/integration/*": "dev@company.com"
+    
+    # Marketing and campaigns
+    "/campaigns/*": "marketing@company.com"
+    "/landing/*": "marketing@company.com"
+    "/promo/*": "marketing@company.com"
+    "/events/*": "marketing@company.com"
+    "/webinars/*": "marketing@company.com"
+    
+    # Human resources
+    "/careers/*": "hr@company.com"
+    "/jobs/*": "hr@company.com"
+    "/hr/*": "hr@company.com"
+    "/benefits/*": "hr@company.com"
+    
+    # Legal and compliance
+    "/legal/*": "legal@company.com"
+    "/compliance/*": "legal@company.com"
+    "/policies/*": "legal@company.com"
+    
+    # Customer resources
+    "/customers/*": "customer-success@company.com"
+    "/case-studies/*": "marketing@company.com"
+    "/testimonials/*": "marketing@company.com"
+    "/reviews/*": "customer-success@company.com"
+    
+    # Partner and vendor
+    "/partners/*": "partnerships@company.com"
+    "/vendors/*": "procurement@company.com"
+    "/integrations/*": "partnerships@company.com"
+    
+    # Sales and business
+    "/sales/*": "sales@company.com"
+    "/business/*": "sales@company.com"
+    "/enterprise/*": "sales@company.com"
+    "/quotes/*": "sales@company.com"
+    
+    # International and localization
+    "/en/*": "content@company.com"
+    "/es/*": "content-es@company.com"
+    "/fr/*": "content-fr@company.com"
+    "/de/*": "content-de@company.com"
+    
+    # Special directories
+    "/admin/*": "webmaster@company.com"
+    "/dashboard/*": "webmaster@company.com"
+    "/tools/*": "webmaster@company.com"
+    "/downloads/*": "marketing@company.com"
+    "/resources/*": "marketing@company.com"
+
+  # Department-based fallback mapping
+  departments:
+    marketing: "marketing@company.com"
+    sales: "sales@company.com"
+    support: "support@company.com"
+    development: "dev@company.com"
+    hr: "hr@company.com"
+    legal: "legal@company.com"
+    finance: "finance@company.com"
+    operations: "operations@company.com"
+    customer-success: "customer-success@company.com"
+    partnerships: "partnerships@company.com"
+    content: "content@company.com"
+    design: "design@company.com"
+    qa: "qa@company.com"
+    
+  # Default fallback for unmapped pages
+  default: "webmaster@company.com"
+
+# Notification settings per stakeholder type
+notification_settings:
+  # Marketing team preferences
+  marketing@company.com:
+    frequency: "weekly"
+    batch_alerts: true
+    include_analytics: true
+    custom_message: "Please review the following marketing pages that require attention."
+    
+  # Content team preferences
+  content@company.com:
+    frequency: "immediate"
+    batch_alerts: false
+    include_analytics: true
+    custom_message: "Content review required for the following pages."
+    
+  # Development team preferences
+  dev@company.com:
+    frequency: "weekly"
+    batch_alerts: true
+    include_analytics: false
+    custom_message: "Technical pages requiring review or removal."
+    
+  # Support team preferences
+  support@company.com:
+    frequency: "bi-weekly"
+    batch_alerts: true
+    include_analytics: true
+    custom_message: "Support documentation needs review."
+    
+  # Default notification settings
+  default:
+    frequency: "weekly"
+    batch_alerts: true
+    include_analytics: true
+    custom_message: "Please review the following pages assigned to you."
+
+# Special handling rules
+special_rules:
+  # Pages that should never be flagged as expired
+  exclude_from_expiry:
+    - "/privacy"
+    - "/terms"
+    - "/legal/*"
+    - "/contact"
+    - "/sitemap"
+    - "/robots.txt"
+    
+  # Pages that require immediate attention when expired
+  high_priority_expiry:
+    - "/products/*"
+    - "/pricing/*"
+    - "/services/*"
+    - "/support/*"
+    
+  # Pages with custom expiry thresholds
+  custom_expiry_thresholds:
+    "/news/*": 180  # 6 months
+    "/blog/*": 365  # 1 year
+    "/events/*": 90   # 3 months
+    "/campaigns/*": 90  # 3 months
+    
+  # Pages with custom low engagement thresholds
+  custom_engagement_thresholds:
+    "/landing/*": 50   # Landing pages need higher engagement
+    "/campaigns/*": 100 # Campaign pages need higher engagement
+    "/products/*": 25   # Product pages need moderate engagement
+
+# Escalation rules
+escalation:
+  # Escalate to manager if no response after X days
+  no_response_days: 7
+  escalation_mapping:
+    "content@company.com": "content-manager@company.com"
+    "marketing@company.com": "marketing-manager@company.com"
+    "dev@company.com": "dev-manager@company.com"
+    "support@company.com": "support-manager@company.com"
+    "default": "webmaster@company.com"
+  
+  # CC additional people for critical pages
+  critical_page_cc:
+    - "webmaster@company.com"
+    - "content-manager@company.com"
+  
+  # Pages considered critical
+  critical_pages:
+    - "/products/*"
+    - "/pricing/*"
+    - "/support/*"
+    - "/legal/*"
+
+# Validation rules
+validation:
+  # Ensure all email addresses are valid
+  email_validation: true
+  
+  # Check that mapped emails exist in the system
+  verify_stakeholder_exists: true
+  
+  # Warn about unmapped high-traffic pages
+  warn_unmapped_high_traffic: true
+  
+  # Maximum number of pages per stakeholder
+  max_pages_per_stakeholder: 1000
+  
+  # Required fields for each mapping
+  required_fields:
+    - stakeholder_email
+    - mapping_type
+    - priority
+
+# Reporting configuration
+reporting:
+  # Include mapping effectiveness in reports
+  include_mapping_stats: true
+  
+  # Track response rates by stakeholder
+  track_response_rates: true
+  
+  # Generate mapping coverage reports
+  generate_coverage_reports: true
+  
+  # Alert on mapping gaps
+  alert_on_gaps: true
+
+# Configuration metadata
+metadata:
+  version: "1.0.0"
+  last_updated: "2024-01-15T10:00:00Z"
+  updated_by: "webmaster@company.com"
+  description: "Stakeholder mapping configuration for page expiry notifications"
+  environment: "production"
