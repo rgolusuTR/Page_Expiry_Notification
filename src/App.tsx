@@ -33,17 +33,15 @@ function App() {
   // Get current tab from URL path
   const getCurrentTab = () => {
     const path = location.pathname;
-    // Handle both regular paths and GitHub Pages base paths
-    const cleanPath = path.replace("/Page_Expiry_Notification", "");
-    if (cleanPath === "/" || cleanPath === "/dashboard" || cleanPath === "")
+    if (path === "/" || path === "/dashboard" || path === "")
       return "dashboard";
-    if (cleanPath === "/sites") return "sites";
-    if (cleanPath === "/analyzer") return "analyzer";
-    if (cleanPath === "/scheduler") return "scheduler";
-    if (cleanPath === "/formats") return "formats";
-    if (cleanPath === "/upload") return "upload";
-    if (cleanPath === "/alerts") return "alerts";
-    if (cleanPath === "/settings") return "settings";
+    if (path === "/sites") return "sites";
+    if (path === "/analyzer") return "analyzer";
+    if (path === "/scheduler") return "scheduler";
+    if (path === "/formats") return "formats";
+    if (path === "/upload") return "upload";
+    if (path === "/alerts") return "alerts";
+    if (path === "/settings") return "settings";
     return "dashboard"; // default fallback
   };
 
@@ -144,11 +142,7 @@ function App() {
 
   // Redirect to dashboard if at root path
   useEffect(() => {
-    if (
-      location.pathname === "/" ||
-      location.pathname === "" ||
-      location.pathname === "/Page_Expiry_Notification/"
-    ) {
+    if (location.pathname === "/" || location.pathname === "") {
       navigate("/dashboard", { replace: true });
     }
   }, [location.pathname, navigate]);
