@@ -141,7 +141,11 @@ function App() {
 
   // Redirect to dashboard if at root path
   useEffect(() => {
-    if (location.pathname === "/" || location.pathname === "") {
+    if (
+      location.pathname === "/" ||
+      location.pathname === "" ||
+      location.pathname === "/Page_Expiry_Notification/"
+    ) {
       navigate("/dashboard", { replace: true });
     }
   }, [location.pathname, navigate]);
