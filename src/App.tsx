@@ -139,6 +139,13 @@ function App() {
     setActiveTab(getCurrentTab());
   }, [location.pathname]);
 
+  // Redirect to dashboard if at root path
+  useEffect(() => {
+    if (location.pathname === "/" || location.pathname === "") {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [location.pathname, navigate]);
+
   // Handle tab navigation
   const handleTabClick = (tabId: string) => {
     const routes = {
