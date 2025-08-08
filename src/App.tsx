@@ -33,14 +33,17 @@ function App() {
   // Get current tab from URL path
   const getCurrentTab = () => {
     const path = location.pathname;
-    if (path === "/" || path === "/dashboard") return "dashboard";
-    if (path === "/sites") return "sites";
-    if (path === "/analyzer") return "analyzer";
-    if (path === "/scheduler") return "scheduler";
-    if (path === "/formats") return "formats";
-    if (path === "/upload") return "upload";
-    if (path === "/alerts") return "alerts";
-    if (path === "/settings") return "settings";
+    // Handle both regular paths and GitHub Pages base paths
+    const cleanPath = path.replace("/Page_Expiry_Notification", "");
+    if (cleanPath === "/" || cleanPath === "/dashboard" || cleanPath === "")
+      return "dashboard";
+    if (cleanPath === "/sites") return "sites";
+    if (cleanPath === "/analyzer") return "analyzer";
+    if (cleanPath === "/scheduler") return "scheduler";
+    if (cleanPath === "/formats") return "formats";
+    if (cleanPath === "/upload") return "upload";
+    if (cleanPath === "/alerts") return "alerts";
+    if (cleanPath === "/settings") return "settings";
     return "dashboard"; // default fallback
   };
 
